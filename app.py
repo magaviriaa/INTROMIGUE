@@ -1,44 +1,43 @@
 import streamlit as st
 from PIL import Image
 
-st.title(" Mi Primera App!!")
+st.title(" Taylor Swift — Mi Primera App")
 
-st.header("En este espacio comienzo a desarrollar mis aplicaciones para interfaces multimodales.")
-st.write("Facilmente puedo realizar backend y frontend.")
-image = Image.open('Interfaces Mult2.png')
+st.header("Este es un espacio para jugar con una app temática de las ERAS.")
+st.write("Aquí conecto UI con vibes Swifties: misma estructura, nueva narrativa.")
+image = Image.open('taylor_eras.png')
 
-st.image(image, caption='Interfaces multimodales')
+st.image(image, caption='The Eras Tour (versión app)')
 
-
-texto = st.text_input('Escribe algo', 'Este es mi texto')
-st.write('El texto escrito es', texto)
+texto = st.text_input('Escribe tu era favorita', "1989 (Taylor's Version)")
+st.write('Tu elección fue:', texto)
 
 st.subheader("Ahora usemos 2 Columnas")
 
 col1, col2 = st.columns(2)
 
 with col1:
-    st.subheader("Esta es la primera columna")
-    st.write("Las interfaces multimodales mejoran la experiencia de usuario")
-    resp = st.checkbox('Estoy de acuerdo')
+    st.subheader("Primera columna — Eras")
+    st.write("Las interfaces multimodales también mejoran la experiencia de un concierto en streaming.")
+    resp = st.checkbox('Soy Swiftie')
     if resp:
-       st.write('Correcto!')
+       st.write('¡Welcome to New York! 🎧')
   
 with col2:
-    st.subheader("Esta es la segunda columna")
+    st.subheader("Segunda columna — Modalidad principal")
     modo = st.radio("Que Modalidad es la principal en tu interfaz", ('Visual', 'auditiva', 'Táctil'))
     if modo == 'Visual':
-       st.write('La vista es fundamental para tu interfaz')
+       st.write('La puesta en escena brilla: vestuarios, luces y pantallas.')
     if modo == 'auditiva':
-       st.write('La audición es fundamental para tu interfaz')
+       st.write('Las letras y la producción llevan la emoción.')
     if modo == 'Táctil':
-       st.write('El tacto es fundamental para tu interfaz')
+       st.write('El ritmo se siente: vibración y compases en el cuerpo.')
         
 st.subheader("Uso de Botones")
 if st.button('Presiona el botón'):
-    st.write('Gracias por presionar')
+    st.write('¡Gracias por presionar! (Shake It Off 🕺)')
 else:
-    st.write('No has presionado aún')
+    st.write('Aún no has presionado — Are you ready for it?')
 
 st.subheader("Selectbox")
 in_mod = st.selectbox(
@@ -46,13 +45,12 @@ in_mod = st.selectbox(
     ("Audio", "Visual", "Háptico"),
 )
 if in_mod == "Audio":
-    set_mod = "Reproducir audio"
+    set_mod = "Reproducir un fragmento de 'Love Story'"
 elif in_mod == "Visual":
-    set_mod = "Reproducir video"
+    set_mod = "Mostrar un videoclip de la era 1989"
 elif in_mod == "Háptico":
-    set_mod = "Activar vibración"
+    set_mod = "Activar vibración al ritmo de 'Cruel Summer'"
 st.write(" La acción es:" , set_mod)
-
 
 with st.sidebar:
     st.subheader("Configura la modalidad")
